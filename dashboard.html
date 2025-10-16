@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmpowerHer - Women Empowerment Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @keyframes gradient-x {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+    .animate-gradient-x {
+      background-size: 200% 200%;
+      animation: gradient-x 6s ease infinite;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    .glass:hover {
+      transform: scale(1.03);
+      border-color: #06b6d4;
+      box-shadow: 0 10px 25px rgba(6, 182, 212, 0.2);
+    }
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+    .card-hover {
+      transition: all 0.3s ease-in-out;
+      transform-origin: center;
+    }
+    .card-hover:hover {
+      transform: scale(1.03);
+      border-color: #06b6d4;
+      box-shadow: 0 10px 25px rgba(6, 182, 212, 0.2);
+    }
+    #dashboardProfilePhoto {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #dashboardProfilePhoto:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(159, 122, 234, 0.5);
+    }
+  </style>
+</head>
+<body class="dark bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 min-h-screen overflow-x-hidden">
+  <!-- Animated Background Elements -->
+  <div class="fixed -z-10 w-full h-full overflow-hidden">
+    <div class="absolute top-20 left-10 w-20 h-20 rounded-full bg-blue-500 opacity-10 blur-xl animate-pulse"></div>
+    <div class="absolute bottom-40 right-20 w-32 h-32 rounded-full bg-blue-600 opacity-10 blur-xl animate-pulse delay-300"></div>
+    <div class="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-blue-400 opacity-10 blur-xl animate-pulse delay-700"></div>
+  </div>
+
+<!-- Header -->
+<div class="bg-gray-800 rounded-lg p-4 mb-5 flex justify-between items-center shadow-md border border-gray-700">
+  <h1 class="text-xl font-semibold">Rural Lady Empowerment Dashboard</h1>
+  <div class="flex items-center space-x-2">
+      <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-purple-400">
+          <!-- Updated profile image with fallback -->
+          <img id="dashboardProfilePhoto" 
+               src="default-avatar.png" 
+               alt="Profile"
+               class="w-full h-full object-cover"
+               onerror="this.src='default-avatar.png'">
+      </div>
+      <span id="dashboardProfileName" class="text-sm font-medium">
+          <!-- Default name will be replaced by JavaScript -->
+          Guest
+      </span>
+  </div>
+</div>
+
+  <!-- Navigation -->
+  <nav class="glass p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">
+        <span class="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+          Empower<span class="text-white">Her</span>
+        </span>
+      </h1>
+      <div class="hidden md:flex space-x-6">
+        <a href="#about" class="text-blue-300 hover:text-white transition">About</a>
+        <a href="#programs" class="text-blue-300 hover:text-white transition">Programs</a>
+        <a href="#stories" class="text-blue-300 hover:text-white transition">Success Stories</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 fade-in">
+    <div class="text-center max-w-4xl">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
+        <span class="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-gradient-x">
+          Empower Rural Women
+        </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-blue-200 mb-8 max-w-3xl mx-auto">
+        Bridging the digital divide to create opportunities for rural women through technology, education, and entrepreneurship.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#programs" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-full hover:opacity-90 transition transform hover:scale-105 shadow-lg shadow-blue-500/20">
+          Explore Programs
+        </a>
+        <a href="community.html" class="px-8 py-3 border border-blue-500 text-blue-400 font-bold rounded-full hover:bg-blue-500 hover:text-white transition transform hover:scale-105">
+          Join Our Community
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-blue-400 text-2xl"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-800 to-gray-900">
+    <div class="container mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            About EmpowerHer
+          </span>
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mb-6"></div>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          We are a non-profit initiative dedicated to empowering rural women through digital literacy, financial independence, and entrepreneurial skills.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-xl hover-scale fade-in card-hover">
+          <div class="text-blue-400 text-4xl mb-4">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Digital Literacy</h3>
+          <p class="text-blue-200">
+            We provide comprehensive training in smartphone usage, internet navigation, and digital tools to bridge the technology gap.
+          </p>
+        </div>
+        
+        <div class="glass p-8 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.2s">
+          <div class="text-blue-400 text-4xl mb-4">
+            <i class="fas fa-rupee-sign"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Financial Freedom</h3>
+          <p class="text-blue-200">
+            Our financial education programs teach savings, budgeting, banking, and entrepreneurship for economic independence.
+          </p>
+        </div>
+        
+        <div class="glass p-8 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.4s">
+          <div class="text-blue-400 text-4xl mb-4">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-white">Community Support</h3>
+          <p class="text-blue-200">
+            We connect women with mentors, resources, and networks to foster growth and mutual support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            Our Programs
+          </span>
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mb-6"></div>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Comprehensive training programs designed specifically for rural women's empowerment.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" style="width: 100%; height: 100%;"> <!-- Reduced gap from gap-8 to gap-6 -->
+        <!-- Program 1 -->
+        <div class="glass p-5 rounded-xl hover-scale fade-in card-hover" style="width: 95%; height: 95%;"> <!-- Reduced size to 95% -->
+          <div class="relative overflow-hidden rounded-lg h-40 mb-3"> <!-- Reduced height from h-48 to h-40 -->
+            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Digital Literacy" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-3"> <!-- Reduced padding from p-4 to p-3 -->
+              <h3 class="text-lg font-bold text-white">Digital Literacy</h3> <!-- Reduced text size from xl to lg -->
+            </div>
+          </div>
+          <p class="text-blue-200 mb-3 text-sm"> <!-- Reduced text size and margin -->
+            Master smartphones, internet, and essential digital tools to navigate the modern world.
+          </p>
+          <a href="community.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">Learn More →</a> <!-- Reduced text size -->
+        </div>
+        
+        <!-- Program 2 -->
+        <div class="glass p-5 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.2s; width: 95%; height: 95%;">
+          <div class="relative overflow-hidden rounded-lg h-40 mb-3">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Financial Skills" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-3">
+              <h3 class="text-lg font-bold text-white">Financial Skills</h3>
+            </div>
+          </div>
+          <p class="text-blue-200 mb-3 text-sm">
+            Learn banking, savings, budgeting, and digital payments for financial independence.
+          </p>
+          <a href="learning.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">Learn More →</a>
+        </div>
+        
+        <!-- Program 3 -->
+        <div class="glass p-5 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.4s; width: 95%; height: 95%;">
+          <div class="relative overflow-hidden rounded-lg h-40 mb-3">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Entrepreneurship" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-3">
+              <h3 class="text-lg font-bold text-white">Entrepreneurship</h3>
+            </div>
+          </div>
+          <p class="text-blue-200 mb-3 text-sm">
+            Start and grow your own business with our comprehensive entrepreneurship training.
+          </p>
+          <a href="store-landing.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">Learn More →</a>
+        </div>
+      </div>
+  </section>
+
+  <!-- Success Stories -->
+  <section id="stories" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-800 to-gray-900">
+    <div class="container mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            Success Stories
+          </span>
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mb-6"></div>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Hear from women who transformed their lives through our programs.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Story 1 -->
+        <div class="glass p-6 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.2s">
+            <div class="flex items-center mb-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.nlrqX_nEgkgHG23T41Tw_AHaE8&pid=Api&P=0&h=180" alt="Shradha Khapra" class="w-full h-full object-cover">
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-white">Shradha Khapra</h4>
+                <p class="text-sm text-blue-300">Co-founder, Apna College</p>
+              </div>
+            </div>
+            <p class="text-blue-200 italic mb-4">
+              "From small-town girl to empowering millions through tech education - every struggle was worth it."
+            </p>
+            <div class="flex justify-between items-center">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <div class="flex space-x-2">
+                <a href="https://www.linkedin.com/in/shradha-khapra/" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="glass p-6 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.4s">
+            <div class="flex items-center mb-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.PmB8KTa9gAaCI-RO-o-yQQHaHa&pid=Api&P=0&h=180" class="w-full h-full object-cover">
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-white">Kiran Mazumdar-Shaw</h4>
+                <p class="text-sm text-blue-300">Founder, Biocon</p>
+              </div>
+            </div>
+            <p class="text-blue-200 italic mb-4">
+              "When I started Biocon in 1978, people thought a woman couldn't run a biotech company. Today, we're changing global healthcare."
+            </p>
+            <div class="flex justify-between items-center">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="flex space-x-2">
+                <a href="https://www.linkedin.com/in/kiranmazumdarshaw/" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/kiranshaw" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        
+        <!-- Story 3 -->
+        <div class="glass p-6 rounded-xl hover-scale fade-in card-hover" style="animation-delay: 0.6s">
+            <div class="flex items-center mb-4">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.MDggBBXpXSa-J5NPlX4MVgHaEK&pid=Api&P=0&h=180" alt="Falguni Nayar" class="w-full h-full object-cover">
+              </div>
+              <div class="ml-4">
+                <h4 class="font-bold text-white">Falguni Nayar</h4>
+                <p class="text-sm text-blue-300">Founder & CEO, Nykaa</p>
+              </div>
+            </div>
+            <p class="text-blue-200 italic mb-4">
+              "I started Nykaa at 50, proving it's never too late to follow your dreams. Today we're empowering women through beauty and entrepreneurship."
+            </p>
+            <div class="flex justify-between items-center">
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="flex space-x-2">
+                <a href="https://www.linkedin.com/in/falguninayar/" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/FalguniNayar" target="_blank" class="text-blue-400 hover:text-white text-sm">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="glass max-w-4xl mx-auto p-12 rounded-xl relative overflow-hidden card-hover">
+      <div class="absolute -z-10 inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-10"></div>
+      <h2 class="text-3xl font-bold mb-6 text-white">Ready to Transform Lives?</h2>
+      <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+        Join us in our mission to empower rural women through technology and education.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="store-landing.html" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-full hover:opacity-90 transition transform hover:scale-105 shadow-lg shadow-blue-500/20">
+          Join as Participant
+        </a>
+        <a href="donate.html" class="px-8 py-3 border border-blue-500 text-blue-400 font-bold rounded-full hover:bg-blue-500 hover:text-white transition transform hover:scale-105">
+          Donate to Support
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Load profile data on dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load profile photo
+        const savedPhoto = localStorage.getItem('profilePhoto');
+        const dashboardPhoto = document.getElementById('dashboardProfilePhoto');
+        if (savedPhoto) {
+            dashboardPhoto.src = savedPhoto;
+        }
+
+        // Load profile name
+        const savedName = localStorage.getItem('profileName');
+        const profileNameElement = document.getElementById('dashboardProfileName');
+        if (savedName) {
+            profileNameElement.textContent = savedName;
+        }
+    });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+  </script>
+</body>
+</html>
