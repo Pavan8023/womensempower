@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +14,14 @@
             transform: translateY(100%);
             opacity: 0;
         }
+
         .notification.show {
             transform: translateY(0);
             opacity: 1;
         }
     </style>
 </head>
+
 <body class="bg-gray-100">
     <!-- Notification Container -->
     <div id="notification" class="notification fixed bottom-4 right-4 p-4 rounded-lg shadow-lg text-white hidden"></div>
@@ -52,12 +55,12 @@
     <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyBPFb8uxZ2mLyVmv2d8JFPcmyBChc9LjkE",
-            authDomain: "women-empwr.firebaseapp.com",
-            projectId: "women-empwr",
-            storageBucket: "women-empwr.appspot.com",
-            messagingSenderId: "XXXXXXX",
-            appId: "1:230261281865:web:a5ad656bd1de125eafdb98"
+            apiKey: "AIzaSyAmRWWDRkPYanSQeBrRaYdJ7tdWHx-rjUI",
+            authDomain: "womensemp.firebaseapp.com",
+            projectId: "womensemp",
+            storageBucket: "womensemp.firebasestorage.app",
+            messagingSenderId: "927560868525",
+            appId: "1:927560868525:web:79dc24ebe0adfedcb45c24"
         };
 
         // Initialize Firebase
@@ -151,7 +154,7 @@
                 const docId = row.dataset.id;
                 const docRef = db.collection('scholarshipApplications').doc(docId);
                 const cells = row.querySelectorAll('.editable-field');
-                
+
                 const updateData = {
                     'personal.fullName': cells[0].value,
                     'personal.email': cells[1].value,
@@ -175,4 +178,5 @@
         });
     </script>
 </body>
+
 </html>
